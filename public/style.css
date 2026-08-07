@@ -1,0 +1,138 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1f2933;
+}
+
+.topo {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 24px;
+  background: #1f3b57;
+  color: #fff;
+}
+
+.topo h1 { margin: 0; font-size: 20px; }
+.contador { font-size: 14px; opacity: 0.85; }
+
+main {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.painel {
+  background: #fff;
+  border: 1px solid #dde3e9;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.painel h2 { margin: 0 0 12px; font-size: 16px; }
+
+.barra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.barra input[type="search"] { flex: 1 1 260px; }
+
+input, select, button {
+  padding: 6px 10px;
+  border: 1px solid #c3ccd6;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+button {
+  background: #1f3b57;
+  color: #fff;
+  border-color: #1f3b57;
+  cursor: pointer;
+}
+
+button.secundario { background: #fff; color: #1f3b57; }
+
+.check { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.check input { padding: 0; }
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabela th, .tabela td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e6eaee;
+}
+
+.tabela th { background: #eef2f6; font-weight: 600; }
+.tabela tbody tr:nth-child(even) { background: #fafbfc; }
+.tabela tbody tr[data-id] { cursor: pointer; }
+.tabela tbody tr[data-id]:hover { background: #eaf2fb; }
+
+.cnpj { color: #6b7885; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #e6eaee;
+}
+
+.badge-CRIADA { background: #dfe7ef; color: #33475b; }
+.badge-COLETADA { background: #dbeafe; color: #1e40af; }
+.badge-EM_TRANSITO { background: #fef3c7; color: #92400e; }
+.badge-SAIU_ENTREGA { background: #ede9fe; color: #5b21b6; }
+.badge-ENTREGUE { background: #dcfce7; color: #166534; }
+.badge-DEVOLVIDA { background: #ffe4e6; color: #9f1239; }
+.badge-CANCELADA { background: #e5e7eb; color: #4b5563; }
+
+.paginacao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.detalhe h3 { margin: 0 0 4px; }
+.detalhe p { margin: 4px 0; font-size: 14px; }
+.detalhe label { display: block; margin-top: 12px; font-size: 14px; }
+
+.historico { padding-left: 18px; font-size: 14px; }
+.historico li { margin-bottom: 4px; }
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 380px;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.mensagem { font-size: 14px; min-height: 18px; margin: 0; }
+.mensagem.erro { color: #b91c1c; }
+.mensagem.sucesso { color: #166534; }
+
+.vazio { color: #6b7885; font-size: 14px; }

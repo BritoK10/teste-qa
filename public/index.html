@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TMS Lite — Acompanhamento de entregas</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>%F0%9F%93%A6</text></svg>">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>TMS Lite</h1>
+    <span id="contador" class="contador">—</span>
+  </header>
+
+  <main>
+    <section class="painel">
+      <h2>Entregas</h2>
+
+      <div class="barra">
+        <input id="busca" type="search" placeholder="Buscar por código, destinatário ou cidade">
+        <select id="filtro-status">
+          <option value="">Todos os status</option>
+          <option value="CRIADA">CRIADA</option>
+          <option value="COLETADA">COLETADA</option>
+          <option value="EM_TRANSITO">EM_TRANSITO</option>
+          <option value="SAIU_ENTREGA">SAIU_ENTREGA</option>
+          <option value="ENTREGUE">ENTREGUE</option>
+          <option value="DEVOLVIDA">DEVOLVIDA</option>
+          <option value="CANCELADA">CANCELADA</option>
+        </select>
+        <label class="check">
+          <input id="incluir-canceladas" type="checkbox"> incluir canceladas
+        </label>
+        <button id="resetar" type="button" class="secundario">Resetar dados</button>
+      </div>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Destinatário</th>
+            <th>Cidade/UF</th>
+            <th>Transportadora</th>
+            <th>Status</th>
+            <th>Prazo</th>
+          </tr>
+        </thead>
+        <tbody id="tabela"></tbody>
+      </table>
+
+      <div class="paginacao">
+        <button id="anterior" type="button">Anterior</button>
+        <span id="pagina">Página 1</span>
+        <button id="proxima" type="button">Próxima</button>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>Detalhe</h2>
+      <div id="detalhe" class="detalhe">
+        <p class="vazio">Selecione uma entrega na tabela.</p>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2>Nova entrega</h2>
+      <form id="form-entrega" class="formulario">
+        <label>Destinatário
+          <input name="destinatario_nome" type="text">
+        </label>
+        <label>Cidade
+          <input name="cidade" type="text">
+        </label>
+        <label>UF
+          <input name="uf" type="text" maxlength="2">
+        </label>
+        <label>Transportadora
+          <select name="id_transportadora" id="select-transportadora"></select>
+        </label>
+        <label>Peso (kg)
+          <input name="peso_kg" type="number" step="0.01">
+        </label>
+        <label>Volumes
+          <input name="volumes" type="number">
+        </label>
+        <label>Data de coleta
+          <input name="data_coleta" type="date">
+        </label>
+        <button type="submit">Cadastrar entrega</button>
+        <p id="mensagem-form" class="mensagem"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 const { store, reset } = require('./src/store.js');
-const { listar, buscar } = require('./src/entregas.js');
+const { listar, buscar, criar } = require('./src/entregas.js');
 
 const TIPOS = {
   '.html': 'text/html; charset=utf-8',
@@ -50,6 +50,12 @@ async function rotear(req, res) {
       incluir_canceladas: url.searchParams.get('incluir_canceladas') === 'true',
     }));
   }
+  if (req.method === 'POST' && rota === '/api/entregas') {
+    const corpo = await lerCorpo(req);
+    const resultado = criar(corpo);
+    return json(res, resultado.status, resultado.corpo);
+  }
+
   const detalhe = rota.match(/^\/api\/entregas\/(\d+)$/);
   if (req.method === 'GET' && detalhe) {
     return json(res, 200, buscar(detalhe[1]) || {});

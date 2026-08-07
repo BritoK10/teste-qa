@@ -12,6 +12,10 @@ Requisitos:
 Ferramenta livre. Se a sua escolha exigir instalação, documente o passo a passo
 completo, partindo de uma máquina limpa.
 
+Se preferir não instalar nada: o próprio Node 18+ já traz executor de testes
+(`node --test`) e `fetch` embutido, o que basta para automatizar cenários de API.
+Playwright, Cypress, Postman/Newman, pytest — qualquer um serve, desde que rode.
+
 Apague estes comentários e preencha as seções abaixo.
 -->
 

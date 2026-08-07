@@ -14,6 +14,33 @@ referência ao avaliar qualquer resultado que a aplicação apresentar.
 **Requisito:** Node.js 18 ou superior. Nada além disso — o projeto não tem
 dependências externas e não precisa de `npm install`, banco de dados ou Docker.
 
+### Já tem o Node instalado?
+
+Abra o terminal e rode:
+
+```bash
+node --version
+```
+
+Se aparecer `v18` ou maior, está pronto — pule para o passo seguinte. Se aparecer
+`command not found` (macOS/Linux) ou `não é reconhecido como um comando`
+(Windows), instale por um destes caminhos:
+
+| Sistema | Como instalar |
+|---------|---------------|
+| Qualquer um | Baixe a versão **LTS** em <https://nodejs.org/pt-br/download> e siga o instalador |
+| Windows (terminal) | `winget install OpenJS.NodeJS.LTS` |
+| macOS (Homebrew) | `brew install node` |
+| Linux, ou quem prefere alternar versões | [nvm](https://github.com/nvm-sh/nvm) e depois `nvm install --lts` |
+
+Feche e reabra o terminal depois de instalar, e confira de novo com
+`node --version`. Qualquer versão LTS a partir da 18 serve.
+
+> Se a máquina for corporativa e bloquear a instalação, avise o recrutador —
+> a gente resolve.
+
+### Subindo a aplicação
+
 ```bash
 node server.js
 ```

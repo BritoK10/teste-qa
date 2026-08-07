@@ -22,4 +22,8 @@ function listar({ q, status, page = 1, limit = 10, incluir_canceladas = false })
   return { total: store.entregas.length, itens: pagina };
 }
 
-module.exports = { listar };
+function buscar(id) {
+  return store.entregas.find((e) => e.id === Number(id)) || null;
+}
+
+module.exports = { listar, buscar };

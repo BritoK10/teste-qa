@@ -9,6 +9,34 @@ referência ao avaliar qualquer resultado que a aplicação apresentar.
 
 ---
 
+## Por onde começar
+
+Leia nesta ordem:
+
+1. **[RELATO_OPERACAO.md](./RELATO_OPERACAO.md)** — a reclamação que chegou do
+   time de operações. É o ponto de partida do desafio.
+2. **[DESAFIO.md](./DESAFIO.md)** — o que você precisa entregar, o prazo e como
+   enviar.
+3. **Este README** — as regras de negócio e o contrato da API. É a referência
+   para decidir se um comportamento está certo ou errado.
+
+## O que você vai entregar
+
+Cada arquivo abaixo já está no repositório, com as seções prontas para
+preencher. O detalhamento do que se espera de cada um está no
+[DESAFIO.md](./DESAFIO.md).
+
+| Arquivo | O que colocar nele |
+|---------|--------------------|
+| [PLANO_DE_TESTE.md](./PLANO_DE_TESTE.md) | Escopo, prioridades, ambiente e riscos considerados |
+| [CASOS_DE_TESTE.md](./CASOS_DE_TESTE.md) | Seus casos, com pré-condição, passos e resultado esperado |
+| [bugs/](./bugs/) | Um arquivo por problema encontrado, seguindo o [modelo](./bugs/_TEMPLATE.md) |
+| [automacao/](./automacao/) | Sua suíte automatizada e as instruções de execução ([leia primeiro](./automacao/README.md)) |
+| [RESPOSTA_OPERACAO.md](./RESPOSTA_OPERACAO.md) | A resposta ao time de operações, sem jargão técnico |
+| [DECISOES.md](./DECISOES.md) | O que você deixou de fora, o que interpretou e por quê |
+
+---
+
 ## Como rodar
 
 **Requisito:** Node.js 18 ou superior. Nada além disso — o projeto não tem

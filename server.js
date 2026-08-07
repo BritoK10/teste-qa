@@ -1,8 +1,9 @@
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
-const { store, reset } = require('./src/store.js');
+const { reset } = require('./src/store.js');
 const { listar, buscar, criar, atualizarStatus } = require('./src/entregas.js');
+const { listar: listarTransportadoras } = require('./src/transportadoras.js');
 
 const TIPOS = {
   '.html': 'text/html; charset=utf-8',
@@ -40,7 +41,11 @@ async function rotear(req, res) {
   const rota = url.pathname;
 
   if (req.method === 'POST' && rota === '/_reset') { reset(); return json(res, 200, { ok: true }); }
-  if (req.method === 'GET' && rota === '/api/transportadoras') return json(res, 200, store.transportadoras);
+  if (req.method === 'GET' && rota === '/api/transportadoras') {
+    return json(res, 200, listarTransportadoras({
+      incluir_inativas: url.searchParams.get('incluir_inativas') === 'true',
+    }));
+  }
   if (req.method === 'GET' && rota === '/api/entregas') {
     return json(res, 200, listar({
       q: url.searchParams.get('q'),

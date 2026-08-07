@@ -72,4 +72,23 @@ function criar(dados) {
   return { status: 201, corpo: entrega };
 }
 
-module.exports = { listar, buscar, criar, calcularPrazo };
+const STATUS_CONHECIDOS = ['CRIADA', 'COLETADA', 'EM_TRANSITO', 'SAIU_ENTREGA', 'ENTREGUE', 'DEVOLVIDA', 'CANCELADA'];
+
+function atualizarStatus(id, { status, descricao }) {
+  const entrega = buscar(id);
+  if (!entrega) return { status: 404, corpo: { erro: 'Entrega não encontrada' } };
+
+  if (!STATUS_CONHECIDOS.includes(status)) {
+    return { status: 422, corpo: { erro: `Status inválido: ${status}` } };
+  }
+
+  entrega.status = status;
+  entrega.historico.push({
+    status,
+    data: new Date().toISOString().slice(0, 10),
+    descricao: descricao || '',
+  });
+  return { status: 200, corpo: entrega };
+}
+
+module.exports = { listar, buscar, criar, calcularPrazo, atualizarStatus, STATUS_CONHECIDOS };

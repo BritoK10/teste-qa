@@ -2,7 +2,7 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 const { store, reset } = require('./src/store.js');
-const { listar, buscar, criar } = require('./src/entregas.js');
+const { listar, buscar, criar, atualizarStatus } = require('./src/entregas.js');
 
 const TIPOS = {
   '.html': 'text/html; charset=utf-8',
@@ -59,6 +59,13 @@ async function rotear(req, res) {
   const detalhe = rota.match(/^\/api\/entregas\/(\d+)$/);
   if (req.method === 'GET' && detalhe) {
     return json(res, 200, buscar(detalhe[1]) || {});
+  }
+
+  const statusRota = rota.match(/^\/api\/entregas\/(\d+)\/status$/);
+  if (req.method === 'PATCH' && statusRota) {
+    const corpo = await lerCorpo(req);
+    const resultado = atualizarStatus(statusRota[1], corpo);
+    return json(res, resultado.status, resultado.corpo);
   }
 
   if (req.method === 'GET') return servirEstatico(res, rota);

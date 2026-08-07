@@ -2,6 +2,7 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 const { store, reset } = require('./src/store.js');
+const { listar } = require('./src/entregas.js');
 
 const TIPOS = {
   '.html': 'text/html; charset=utf-8',
@@ -41,7 +42,13 @@ async function rotear(req, res) {
   if (req.method === 'POST' && rota === '/_reset') { reset(); return json(res, 200, { ok: true }); }
   if (req.method === 'GET' && rota === '/api/transportadoras') return json(res, 200, store.transportadoras);
   if (req.method === 'GET' && rota === '/api/entregas') {
-    return json(res, 200, { total: store.entregas.length, itens: store.entregas });
+    return json(res, 200, listar({
+      q: url.searchParams.get('q'),
+      status: url.searchParams.get('status'),
+      page: url.searchParams.get('page') || 1,
+      limit: url.searchParams.get('limit') || 10,
+      incluir_canceladas: url.searchParams.get('incluir_canceladas') === 'true',
+    }));
   }
   if (req.method === 'GET') return servirEstatico(res, rota);
   return json(res, 404, { erro: 'Rota não encontrada' });

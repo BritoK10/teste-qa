@@ -10,33 +10,6 @@ resultado.
 Repita o bloco abaixo para cada caso.
 -->
 
-## CT-01 — <título do caso>
-
-| | |
-|---|---|
-| **Funcionalidade** | <listagem / cadastro / status / prazo / ...> |
-| **Prioridade** | Alta / Média / Baixa |
-| **Tipo** | Positivo / Negativo / Limite |
-| **Camada** | UI / API |
-
-**Pré-condição:**
-<!-- Estado necessário antes de começar. Ex.: dados resetados via POST /_reset. -->
-
-**Passos:**
-1.
-2.
-
-**Resultado esperado:**
-<!-- Um resultado observável e verificável. Cite a regra do README que o sustenta. -->
-
-**Resultado obtido:**
-
-**Status:** Passou / Falhou / Bloqueado
-
-**Bug relacionado:** <arquivo em bugs/, se houver>
-
----
-
 ## CT-01 — Validação de Prazo de entrega exibido no detalhamento
 
 | | |
@@ -61,11 +34,12 @@ Repita o bloco abaixo para cada caso.
     A data exibida no TMS deve ser idêntica à data confirmada pela transportadora, conforme regra de sincronização. 
     *REGRA*: data_prazo = data_coleta + prazo_dias da transportadora contados em dias úteis
 
-**Resultado obtido:**
+**Resultado obtido:** O sistema está retornando a Data de Prazo contando os dias correntes e não somente os dias úteis
 
-**Status:**
+**Status:** Falhou
 
 **Bug relacionado:**
+    Arquivo em bugs/BUG-01-PRAZO-DE-ENTREGA
 
 ---
 
@@ -99,11 +73,11 @@ Repita o bloco abaixo para cada caso.
 **Resultado esperado:**
     Caso não estejam todos os campos Obrigatórios preenchidos, o sistema não deve realizar o cadastro de uma Nova Entrega
 
-**Resultado obtido:**
+**Resultado obtido:** O Sistema está permitindo criação de novas entregas mesmo sem preencher os campos obrigatórios.
 
-**Status:** Passou / Falhou / Bloqueado
+**Status:**  Falhou 
 
-**Bug relacionado:** <arquivo em bugs/, se houver>
+**Bug relacionado:** arquivo em bugs/BUG-02-CAMPOS-OBRIGATORIOS
 
 ---
 
@@ -142,11 +116,11 @@ Repita o bloco abaixo para cada caso.
 **Resultado esperado:**
     Caso não estejam todos os atributos Obrigatórios preenchidos, o sistema não deve realizar o cadastro de uma Nova Entrega, retornando 422 na requisição e informando o erro.
 
-**Resultado obtido:**
+**Resultado obtido:** O Sistema está permitindo criação de novas entregas mesmo sem preencher os campos obrigatórios.
 
-**Status:** Passou / Falhou / Bloqueado
+**Status:** Falhou
 
-**Bug relacionado:** <arquivo em bugs/, se houver>
+**Bug relacionado:** arquivo em bugs/BUG-02-CAMPOS-OBRIGATORIOS
 
 ---
 
@@ -178,10 +152,11 @@ Repita o bloco abaixo para cada caso.
                                               ↘ DEVOLVIDA
 
 **Resultado obtido:**
+    O sistema está permitindo alterar o status da entrega independente do fluxo, podendo para e retornar a qualquer status
 
-**Status:** Passou / Falhou / Bloqueado
+**Status:**  Falhou 
 
-**Bug relacionado:** <arquivo em bugs/, se houver>
+**Bug relacionado:** arquivo em bugs/BUG-03-ALTERACAO-STATUS
 
 ---
 
@@ -217,14 +192,15 @@ Repita o bloco abaixo para cada caso.
                                               ↘ DEVOLVIDA
 
 **Resultado obtido:**
+        O sistema está permitindo alterar o status da entrega independente do fluxo, podendo para e retornar a qualquer status
 
-**Status:** Passou / Falhou / Bloqueado
+**Status:** Falhou
 
-**Bug relacionado:** <arquivo em bugs/, se houver>
+**Bug relacionado:** arquivo em bugs/BUG-03-ALTERACAO-STATUS
 
 ---
 
-## CT-06 — Validar campos de busca de entregas
+## CT-06 — Validar campo de busca de entregas
 
 | | |
 |---|---|
@@ -244,10 +220,11 @@ Então o sistema deve retornar a listagem de entregas independente da ortografia
 **Resultado esperado:**
     Conforme a regra de negócio o sistema deve retornar na listagem a busca independente de "acentuação e diferenças de maiúsculas/minúsculas — procurar por sao paulo, SÃO PAULO ou São Paulo devolve os mesmos resultados"
 
-**Resultado obtido:**
+**Resultado obtido:** 
+    O sistema não está retornando na listagem a busca independente de "acentuação e diferenças de maiúsculas/minúsculas — procurar por sao paulo, SÃO PAULO ou São Paulo devolve os mesmos resultados"
 
-**Status:** Passou / Falhou / Bloqueado
+**Status:**  Falhou 
 
-**Bug relacionado:** <arquivo em bugs/, se houver>
+**Bug relacionado:** arquivo em bugs/BUG-04-BUSCA-DE-ENTREGAS
 
 ---

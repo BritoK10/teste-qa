@@ -4,6 +4,7 @@
 
 | Item não coberto | Por quê | Risco de deixar assim |
 |---|---|---|
+
 | Paginação na listagem de Entregas | Critério de severidade | Impacto baixo na usabilidade, mas está em desacordo com a regra de paginação descrita no READ.me |
 
 | Contador de Entregas | Critério de severidade | Impacto baixo na usabilidade, mas está retornando o número total de entregas da base e não somente conforme o filtro
@@ -11,6 +12,10 @@
 | Histório de uma entrega | Seria uma melhoria no comportamento do Sistema | Impacto médio no sistema, pois no atual momento o Histórico de alterações de uma entrega não exibe algumas informações importantes como por exemplo: Usuário que realizou a alteração. |
 
 | Duplicidade de Entregas | Por não ter uma visão correta do funionamento do sistema. | Risco alto de duplicidade no cadastro, quando somente o código de rastreio é o que "identifica" uma entrega | 
+
+| Teste de Carga | Por necessidade de integrações/infraestrutura e condições reais de produção | Risco médio, pois pode gerar travamento ou lentidão no sistema dependendo do número de massa que entra em uma carga |
+
+| Teste Automatizado | Por questão de conhecimento técnico e de negócio optei por não realizar os testes automatizados no primeiro momento, pois não possuo clareza e conhecimento técnico na automação de API no momento | Risco médio, pois pode gerar um reteste mais de uma vez, assim acarretando em um esforço maior que poderia estar automatizado | 
 
 ## 2. Ambiguidades e interpretações
 

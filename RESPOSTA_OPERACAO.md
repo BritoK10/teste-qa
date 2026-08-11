@@ -1,21 +1,22 @@
 # Resposta à área de operações
 
-<!--
-Escreva para a Camila, que coordena Operações e não é da área técnica.
-
-O que se espera desta mensagem:
-- responder objetivamente à pergunta dela: dá para confiar no sistema hoje?
-- explicar o problema mais grave em linguagem de negócio — sem endpoint, sem
-  código de status HTTP, sem nome de arquivo;
-- dizer qual é o impacto prático para a operação e para o cliente;
-- indicar o que ela pode fazer enquanto o problema não for corrigido;
-- ser honesto sobre o que ainda não se sabe.
-
-Tamanho sugerido: o que caberia em um e-mail que ela leia de uma vez.
-Apague estes comentários antes de entregar.
--->
-
 **Para:** Camila Ferraz — Coordenação de Operações
-**Assunto:**
+**Assunto:** Confiabilidade do TMS – Pontos Críticos e Urgências 
 
-<!-- sua mensagem aqui -->
+Bom dia Camila,
+
+Após os testes realizados, a conclusão é que o sistema TMS não está confiável neste momento. As falhas encontradas afetam diretamente a operação e a experiência dos clientes.
+
+Principais problemas identificados:
+  •	O fluxo de status das entregas não é respeitado, permitindo mudanças fora da ordem correta.
+  •	O prazo de entrega mostrado não corresponde ao prazo real, causando informações incorretas para os clientes.
+  •	O cadastro de entregas permite salvar dados incompletos, o que gera registros inválidos.
+
+O que precisa ser corrigido com urgência:
+  1.	Regras de status das entregas – para evitar que entregas apareçam como concluídas sem terem acontecido.
+  2.	Validação dos campos obrigatórios no cadastro – para garantir que os registros tenham informações completas.
+  3.	Cálculo correto do prazo de entrega – para que o cliente receba informações confiáveis.
+
+Sem essas correções, o sistema compromete a confiança dos usuários e aumenta o retrabalho das equipes.
+
+Atenciosamente, Kevin
